@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.todo.business.ITodoService;
+import com.qa.todo.business.IFriendService;
 import com.qa.todo.constants.Constants;
-import com.qa.todo.domain.Todo;
+import com.qa.todo.domain.Friend;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
