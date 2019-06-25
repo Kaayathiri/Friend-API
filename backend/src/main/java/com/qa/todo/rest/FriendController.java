@@ -18,28 +18,28 @@ import com.qa.todo.domain.Todo;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-public class TodoController {
+public class FriendController {
 
 	@Autowired
-	private ITodoService todoService;
+	private IFriendService friendService;
 
-	@GetMapping(path = Constants.TODO)
-	public ResponseEntity<List<Todo>> getTodo() {
-		return ResponseEntity.ok(todoService.getTodo());
+	@GetMapping(path = Constants.FRIEND)
+	public ResponseEntity<List<Friend>> getFriend() {
+		return ResponseEntity.ok(friendService.getFriend());
 	}
 	
-	@RequestMapping(value = Constants.TODO, method = RequestMethod.POST)
-	public ResponseEntity<Todo> postTodo(@RequestBody Todo todo) {
-		return ResponseEntity.ok(todoService.addTodo(todo));
+	@RequestMapping(value = Constants.FRIEND, method = RequestMethod.POST)
+	public ResponseEntity<Friend> postFriend(@RequestBody Friend friend) {
+		return ResponseEntity.ok(friendService.addFriend(friend));
 	}
 
-	@RequestMapping(value = Constants.TODO_WITH_PARAM, method = RequestMethod.DELETE)
-	public ResponseEntity<List<Todo>> deleteTodo(@PathVariable("id") long id) {
-		if (!todoService.findById(id).isPresent()) {
+	@RequestMapping(value = Constants.FRIEND_WITH_PARAM, method = RequestMethod.DELETE)
+	public ResponseEntity<List<Friend>> deleteFriend(@PathVariable("id") long id) {
+		if (!friendService.findById(id).isPresent()) {
 			return ResponseEntity.badRequest().build();
 		}
-		todoService.deleteTodo(id);
-		return ResponseEntity.ok(todoService.getTodo());
+		friendService.deleteFriend(id);
+		return ResponseEntity.ok(friendService.getFriend());
 	}
 
 
